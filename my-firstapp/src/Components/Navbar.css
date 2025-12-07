@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans+Expanded:wght@700&display=swap');
+
+.navbar {
+  background: linear-gradient(to right, #233dff, #000000);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Zalando Sans Expanded', sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  color: #fff;
+  font-size: 35px;
+  letter-spacing: 0.5rem;
+}
+
+.logo-img {
+  width: 30px;
+  height: 25px;
+  margin-right: 0.5rem;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-collapse {
+  text-align: center;
+}
+
+.navbar-nav {
+  margin: 1rem 0;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:last-child {
+  border-bottom: none;
+}
+
+.nav-link:hover {
+  color: #6c8cff ;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.favorite-icon {
+  color: #fff;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.favorite-icon:hover {
+  color: #ff6b6b;
+}
+
+.avatar-link {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+@media (max-width: 991px) {
+  .navbar-brand {
+    font-size: 22px;
+    letter-spacing: 0.2rem;
+  }
+
+  .logo-img {
+    width: 22px;
+    height: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    padding: 0.5rem 2rem;
+  }
+
+  .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    margin: 0;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+    font-size: 20px;
+  }
+
+  .nav-link:hover {
+    text-decoration: 5px rgba(255, 0, 0, 0.667) underline;
+    border-radius: 5px;
+    transition:ease-in 0.9s; 
+  }
+
+  .nav-icons {
+    border-top: none;
+    padding: 0;
+    gap: 1rem;
+  }
+
+  .navbar-toggler {
+    display: none;
+  }
+}

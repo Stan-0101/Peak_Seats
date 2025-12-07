@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Zalando+Sans+Expanded:wght@700&display=swap');
+
+.body {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.feature{
+  margin-bottom: 25px;
+}
+
+.content {
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.553);
+  backdrop-filter: blur(50px);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.custom-carousel {
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.custom-carousel img {
+  height: 300px;
+  object-fit: cover;
+}
+
+
+.Title {
+  margin-bottom: 10px;
+  font-family: Cambria, serif;
+  font-weight: bold;
+  font-size: 25px;
+  border: 3px solid #000;
+  border-radius: 20px;
+  width: 250px;
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+}
+
+.heart-btn {
+  background: none;
+  border: none;
+  color: #878787;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.heart-btn:hover {
+  transform: scale(1.25);
+  color: #e60000;
+}
+.heart-btn:focus{
+  color: #e60000;
+}
+
+/*Scroll*/
+.scroll-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;               
+  justify-content: center;      
+  align-items: center;
+  gap: 25px;                     
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.Card {
+ 
+ margin-right: 115px;
+}
+
+.games::-webkit-scrollbar {
+  display: none;
+}
+
+
+.Card img {
+  border-radius: 15px;
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.Card img:hover {
+  transform: scale(1.05);
+}
+
+
+
+/*Responsive*/
+@media (max-width: 768px) {
+  .Title {
+    width: 200px;
+    font-size: 20px;
+  }
+
+  .Card img {
+    width: 200px;
+    height: 120px;
+  }
+
+
+}

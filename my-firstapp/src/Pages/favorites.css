@@ -1,0 +1,118 @@
+.BOX {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.favorites-box {
+  background-color: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  width: 460px;
+  padding: 30px;
+}
+
+
+.search-icon {
+  font-size: 22px;
+  cursor: pointer;
+  color: #475569;
+}
+
+.search-bar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #e2e8f0;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+
+.item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+}
+
+.item:nth-child(2) img { border-color: #f87171; }
+.item:nth-child(3) img { border-color: #34d399; }
+.item:nth-child(4) img { border-color: #6f85ff; }
+
+.item-text h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.item-text p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+.heart {
+  font-size: 22px;
+  color: #cbd5e1;
+  cursor: pointer;
+  user-select: none;
+  margin-right: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+.heart.active {
+  color: #ef4444;
+}
+
+.item:nth-child(2):hover { background: rgba(248, 113, 113, 0.1); }
+.item:nth-child(3):hover { background: rgba(52, 211, 153, 0.1); }
+.item:nth-child(4):hover { background: rgba(111, 133, 255, 0.1); }

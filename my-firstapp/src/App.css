@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+  background-color: rgb(157, 157, 157);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+}
+
+
+.bg {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  display: flex;
+  pointer-events: none;
+
+  
+}
+
+.bg-left {
+  flex: 1;
+  background: linear-gradient(#007bff 0%, #0056b3 100%);
+}
+
+.bg-center-lines {
+  flex: 2;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.12) 0,
+      rgba(255,255,255,0.12) 4px,
+      transparent 4px,
+      transparent 80px
+    ),
+    #f4f4f4;
+}
+
+.bg-right {
+  flex: 1;
+  background: linear-gradient(#ff8c00 0%, #e67300 100%);
+}
+
+
+.main-content {
+  flex: 1;
+  margin-top: 70px; 
+  padding: 20px 0;
+  min-height: calc(100vh - 140px); 
+  
+  position: relative; 
+  z-index: 1; 
+}
+
+
+
+
+.page-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 60px;
+    padding: 15px 0;
+    min-height: calc(100vh - 120px);
+  }
+  
+  .page-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-top: 55px;
+    padding: 10px 0;
+    min-height: calc(100vh - 110px);
+  }
+  
+  .page-container {
+    padding: 10px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(157, 157, 157);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
