@@ -4,33 +4,90 @@ import api from '../api/axiosconfig';
 import './register.css';
 
 function Register() {
-  const [message, setMessage] = useState('');
+  const [responseMsg, setResponseMsg] = useState('');
+  const [formData, setFormData] = useState({
+    fullname: '',
+    email: '',
+    username: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setResponseMsg('');
 
-    const fullname = e.target.fullname.value.trim();
-    const email = e.target.email.value.trim();
-    const username = e.target.username.value.trim();
-    const password = e.target.password.value;
-    const confirmPassword = e.target['confirm-password'].value;
-
-    if (password !== confirmPassword) {
-      setMessage('Passwords do not match.');
+    // Validation
+    if (formData.password !== formData.confirmPassword) {
+      setResponseMsg('Passwords do not match.');
       return;
     }
 
-    try {
-      const res = await api.post('/insertuser.php', {  
-        fullname,
-        email,
-        username,
-        password,
-      });
+    // Check if any field is empty
+    for (let key in formData) {
+      if (key !== 'confirmPassword' && !formData[key].trim()) {
+        setResponseMsg('Please fill all fields.');
+        return;
+      }
+    }
 
-      setMessage(res.data.message || 'Unexpected response');
+    console.log('Submitting form data:', formData);
+    
+    try {
+      const res = await api.post("/insertuser.php", {
+        fullname: formData.fullname,
+        email: formData.email,
+        username: formData.username,
+        password: formData.password,
+      });
+      
+      console.log('Response from server:', res.data);
+      setResponseMsg(res.data.message);
+      
+      // Clear form on success
+      if (res.data.success) {
+        setFormData({
+          fullname: '',
+          email: '',
+          username: '',
+          password: '',
+          confirmPassword: ''
+        });
+        
+        
+        document.getElementById('message').style.color = 'green';
+        
+        
+        setTimeout(() => {
+          window.location.href = '/LoginPage';
+        }, 100);
+      } else {
+        document.getElementById('message').style.color = 'red';
+      }
     } catch (err) {
-      setMessage('Error connecting to backend.');
+      console.error('Error details:', err);
+      console.error('Error response:', err.response);
+      
+      if (err.response) {
+        
+        setResponseMsg(err.response.data?.message || `Error: ${err.response.status}`);
+      } else if (err.request) {
+        // Request was made but no response
+        console.error('No response received. Check if backend is running.');
+        setResponseMsg('Cannot connect to server. Please check backend.');
+      } else {
+        // Something else happened
+        setResponseMsg('Error: ' + err.message);
+      }
+      document.getElementById('message').style.color = 'red';
     }
   };
 
@@ -55,6 +112,8 @@ function Register() {
                   name="fullname"
                   placeholder="Enter your full name"
                   required
+                  value={formData.fullname}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -66,6 +125,8 @@ function Register() {
                   name="email"
                   placeholder="Enter your email"
                   required
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -77,6 +138,8 @@ function Register() {
                   name="username"
                   placeholder="Choose a username"
                   required
+                  value={formData.username}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -88,21 +151,28 @@ function Register() {
                   name="password"
                   placeholder="Create a password"
                   required
+                  
+                  value={formData.password}
+                  onChange={handleChange}
                 />
               </div>
 
               <div className="input-group">
-                <label htmlFor="confirm-password">Confirm Password</label>
+                <label htmlFor="confirmPassword">Confirm Password</label>
                 <input
                   type="password"
-                  id="confirm-password"
-                  name="confirm-password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   placeholder="Re-enter your password"
                   required
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
                 />
               </div>
 
-              <p id="message" style={{ color: 'red', textAlign: 'center' }}>{message}</p>
+              <p id="message" style={{ textAlign: 'center', margin: '10px 0', fontWeight: 'bold' }}>
+                {responseMsg}
+              </p>
 
               <button type="submit" className="register-btn">Register</button>
 
