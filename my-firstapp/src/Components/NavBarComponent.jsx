@@ -5,7 +5,7 @@ import logo from '../images/logo.png';
 import profile from '../images/profile.png';
 import './Navbar.css';
 import useNavBarToggle from './NavToggle';
-import UserProfileSidebar from './UserProfileSidebar';
+import UserProfileSidebar from './UserProfileSideBar';
 
 function NavBarComponent() {
   const { isCollapsed, handleNavClick, handleToggleClick } = useNavBarToggle();
