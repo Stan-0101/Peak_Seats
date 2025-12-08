@@ -23,12 +23,17 @@ function UserProfileSidebar({ isOpen, onClose }) {
 
   const fetchUserInfo = async (username) => {
     try {
-      const apiURL = "https://sheetdb.io/api/v1/8d0djbxprffme";
-      const response = await fetch(`${apiURL}/search?Username=${username}`);
+      const response = await fetch('http://localhost/Peak_Seats/backend-peakseats/api/getUserInfo.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username})
+      });
       const data = await response.json();
       
-      if (data.length > 0) {
-        setUserInfo(data[0]);
+      if (data.success) {
+        setUserInfo(data.user);
+      } else {
+        console.error("Error fetching user info:", data.message);
       }
     } catch (error) {
       console.error("Error fetching user info:", error);
