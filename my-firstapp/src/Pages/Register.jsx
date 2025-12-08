@@ -21,7 +21,7 @@ function Register() {
     }
 
     try {
-      const res = await api.post('/register.php', {  
+      const res = await api.post('/insertuser.php', {  
         fullname,
         email,
         username,
