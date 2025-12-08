@@ -1,0 +1,8 @@
+Example source path:
+C:\Users\Student\Downloads\Project\backend-peakseats\api\getUserInfo.php
+- where the file was originally located before copying
+
+Example destination path:
+C:\xampp\htdocs\Project\backend-peakseats\api\getUserInfo.php
+- kung saan dapat ilagay yung file sa XAMPP para ma‑access ng backend tas
+  magamit sa frontend
