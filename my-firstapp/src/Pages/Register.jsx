@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../api/axiosconfig'; 
 import './register.css';
-import regFunction from '../JS Function/RegFunction.js';
 
 function Register() {
-  React.useEffect(() => {
-    regFunction();
-  }, []);
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const fullname = e.target.fullname.value.trim();
+    const email = e.target.email.value.trim();
+    const username = e.target.username.value.trim();
+    const password = e.target.password.value;
+    const confirmPassword = e.target['confirm-password'].value;
+
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match.');
+      return;
+    }
+
+    try {
+      const res = await api.post('/register.php', {  
+        fullname,
+        email,
+        username,
+        password,
+      });
+
+      setMessage(res.data.message || 'Unexpected response');
+    } catch (err) {
+      setMessage('Error connecting to backend.');
+    }
+  };
 
   return (
     <div className="body">
@@ -20,7 +46,7 @@ function Register() {
         <section className="register-section">
           <div className="register-container">
             <h2>Create an Account</h2>
-            <form id="registerForm">
+            <form id="registerForm" onSubmit={handleSubmit}>
               <div className="input-group">
                 <label htmlFor="fullname">Full Name</label>
                 <input
@@ -76,8 +102,7 @@ function Register() {
                 />
               </div>
 
-              
-              <p id="message" style={{ color: 'red', textAlign: 'center' }}></p>
+              <p id="message" style={{ color: 'red', textAlign: 'center' }}>{message}</p>
 
               <button type="submit" className="register-btn">Register</button>
 
