@@ -1,19 +1,29 @@
 <?php
-// CORS headers
-header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') exit(0);
-
+// CORS headers - Allow requests from React app
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 header("Content-Type: application/json");
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit(0);
+}
 
 // Include database config
 require_once "../config.php";
 
 // Get JSON input
-$input = json_decode(file_get_contents("php://input"), true);
+$rawInput = file_get_contents("php://input");
+$input = json_decode($rawInput, true);
+
+// Debug: Log what we received
+error_log("Raw input: " . $rawInput);
+error_log("Decoded input: " . json_encode($input));
+
 if (!$input) {
-    echo json_encode(["success" => false, "message" => "No data received"]);
+    echo json_encode(["success" => false, "message" => "No data received", "debug" => "Raw: " . $rawInput]);
     exit;
 }
 
