@@ -24,7 +24,7 @@ function LoginPage() {
     e.preventDefault();
     setResponseMsg('');
 
-    // Validation
+    
     if (!formData.username.trim() || !formData.password.trim()) {
       setResponseMsg('Please enter both username and password.');
       document.getElementById('message').style.color = 'red';
@@ -42,42 +42,59 @@ function LoginPage() {
       console.log('Response from server:', res.data);
       setResponseMsg(res.data.message);
       
-      // Handle successful login
+      
       if (res.data.success) {
+       
+        localStorage.setItem('loggedUser', formData.username.trim());
+        console.log('✅ Username saved to localStorage:', formData.username);
+        
+        
+        if (res.data.user) {
+          localStorage.setItem('userData', JSON.stringify(res.data.user));
+        }
         
         document.getElementById('message').style.color = 'green';
         
-       
+        
         setFormData({
           username: '',
           password: ''
         });
         
         
+        setResponseMsg(`Login successful! Welcome ${formData.username}`);
+        
+        
         setTimeout(() => {
           window.location.href = '/';
-        }, 1000);
+        }, 1500);
       } else {
         document.getElementById('message').style.color = 'red';
+        
+        localStorage.removeItem('loggedUser');
+        localStorage.removeItem('userData');
       }
     } catch (err) {
       console.error('Error details:', err);
       console.error('Error response:', err.response);
       
+      
+      localStorage.removeItem('loggedUser');
+      localStorage.removeItem('userData');
+      
       if (err.response) {
-       
         setResponseMsg(err.response.data?.message || `Error: ${err.response.status}`);
       } else if (err.request) {
-        
         console.error('No response received. Check if backend is running.');
         setResponseMsg('Cannot connect to server. Please check backend.');
       } else {
-       
         setResponseMsg('Error: ' + err.message);
       }
       document.getElementById('message').style.color = 'red';
     }
   };
+
+  
 
   return (
     <div className="body">
@@ -103,6 +120,7 @@ function LoginPage() {
                   value={formData.username}
                   onChange={handleChange}
                   required 
+                  autoComplete="username"
                 />
               </div>
 
@@ -116,6 +134,7 @@ function LoginPage() {
                   value={formData.password}
                   onChange={handleChange}
                   required 
+                  autoComplete="current-password"
                 />
               </div>
 
@@ -132,6 +151,8 @@ function LoginPage() {
               <p className="signup-text">
                 Don't have an account? <Link to="/RegisterPage">Sign up</Link>
               </p>
+
+              
             </form>
           </div>
         </section>
