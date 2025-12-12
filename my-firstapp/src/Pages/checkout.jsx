@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import checkoutFunction from "../JS Function/checkout.js";
+import backgroundImage from '../images/background.jpg';
 
 export default function Checkout() {
   const [payment, setPayment] = useState("");
@@ -16,10 +17,8 @@ export default function Checkout() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="content">
         <div className="checkout-container">

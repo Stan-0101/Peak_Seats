@@ -5,18 +5,15 @@ import { Link } from 'react-router-dom';
 import bball from '../images/bball feature.jpg';
 import swimming from '../images/swimming feature.jpg';
 import vball from '../images/vball feature.jpeg';
+import backgroundImage from '../images/background.jpg';
 import './content.css';
 
 function ContentComponent() {
- 
-
   return (
     <div className="body">
       {/* Background */}
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
+        <img src={backgroundImage} alt="Background" className="bg-image" />
       </div>
 
       {/* Content */}
@@ -37,7 +34,7 @@ function ContentComponent() {
           </Container>
         </div>
 
-        {/*Featured Games*/}
+        {/* Featured Games */}
         <div className="SportContent">
           {/* Basketball */}
           <div className="SportSection">
@@ -47,9 +44,6 @@ function ContentComponent() {
             </div>
 
             <div className="scroll-container">
-             
-              
-
               <div className="games" id="basketball">
                 <div className="Card">
                   <Link to="/BasketballPage">
@@ -72,8 +66,6 @@ function ContentComponent() {
                   </Link>
                 </div>
               </div>
-
-             
             </div>
           </div>
 
@@ -85,8 +77,6 @@ function ContentComponent() {
             </div>
 
             <div className="scroll-container">
-           
-
               <div className="games" id="volleyball">
                 <div className="Card">
                   <Link to="/VolleyballPage">
@@ -109,8 +99,6 @@ function ContentComponent() {
                   </Link>
                 </div>
               </div>
-
-             
             </div>
           </div>
 
@@ -122,8 +110,6 @@ function ContentComponent() {
             </div>
 
             <div className="scroll-container">
-              
-
               <div className="games" id="swimming">
                 <div className="Card">
                   <Link to="/SwimmingPage">
@@ -146,8 +132,6 @@ function ContentComponent() {
                   </Link>
                 </div>
               </div>
-
-             
             </div>
           </div>
         </div>
@@ -155,5 +139,4 @@ function ContentComponent() {
     </div>
   );
 }
-
 export default ContentComponent;

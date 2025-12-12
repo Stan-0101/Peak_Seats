@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import initFavorites from "../JS Function/Favorites.js";
 import "../Pages/favorites.css";
+import backgroundImage from '../images/background.jpg';
 
 function FavoritePage() {
   const navigate = useNavigate();
@@ -24,10 +25,8 @@ function FavoritePage() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="content">
         <div className="BOX">

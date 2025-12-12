@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Arena.css";
 import SwimArena from "../images/SwimArena.jpg";
+import backgroundImage from '../images/background.jpg';
 
 function AquaDome() {
   const [quantity, setQuantity] = useState(1);
@@ -34,10 +35,8 @@ function AquaDome() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="Content">
         <div className="backbutton">

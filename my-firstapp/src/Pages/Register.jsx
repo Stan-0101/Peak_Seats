@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api/axiosconfig'; 
 import './register.css';
+import backgroundImage from '../images/background.jpg';
 
 function Register() {
   const [responseMsg, setResponseMsg] = useState('');
@@ -94,10 +95,8 @@ function Register() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="content">
         <section className="register-section">

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./checkout.css";
+import backgroundImage from '../images/background.jpg';
+
 
 export default function Payment() {
   const location = useLocation();
@@ -180,10 +182,8 @@ export default function Payment() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="content">
         <div className="checkout-container">

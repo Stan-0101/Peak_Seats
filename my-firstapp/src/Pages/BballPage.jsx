@@ -4,16 +4,15 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ballgame1 from '../images/ballgame1.jpg';
 import './SportsPage.css';
+import backgroundImage from '../images/background.jpg';
 
 function BballPage() {
   return (
     <div className="body">
       {/* background */}
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       {/* main content */}
       <div className="Content">

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./meals.css";
 import Meals from "../JS Function/meals"; // correct import
+import backgroundImage from '../images/background.jpg';
+
 
 function Meal() {
   useEffect(() => {
@@ -10,10 +12,8 @@ function Meal() {
   return (
     <div className="body">
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
-      </div>
+              <img src={backgroundImage} alt="Background" className="bg-image" />
+            </div>
 
       <div className="Content">
         <section className="ordering-section">
