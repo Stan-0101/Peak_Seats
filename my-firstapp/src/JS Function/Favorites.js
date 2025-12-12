@@ -14,7 +14,8 @@ export default function initFavorites() {
   });
 
   document.querySelectorAll('.heart').forEach(heart => {
-    heart.addEventListener('click', () => {
+    heart.addEventListener('click', (e) => {
+      e.stopPropagation();
       const item = heart.parentElement;
       heart.classList.toggle('active');
       heart.textContent = heart.classList.contains('active') ? '❤️' : '♡';
