@@ -87,7 +87,6 @@ body {
 .cart-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -110,30 +109,66 @@ body {
 .cart-details {
   flex: 1;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 20px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 30px;
 }
 
 .cart-details h3 {
   font-size: 1.3rem;
   font-weight: 700;
   color: #000;
-  margin-bottom: 6px;
+  margin-bottom: 0;
+  grid-column: 1;
+  align-self: center;
 }
 
-.cart-details p {
-  font-size: 1rem;
-  color: #333;
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  height: 40px;
+  align-items: center;
+  grid-column: 2;
+  margin: 0;
+}
+
+.price-text {
+  font-size: 1.1rem;
   font-weight: 600;
+  color: #333;
+  min-width: 80px;
+}
+
+.quantity-section {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-left: 0;
+  margin-right: 80px;
 }
 
 .qty-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  background: #f8f8f8;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
 }
 
 .qty-btn {
+  width: 32px;
+  height: 32px;
   font-size: 1.1rem;
-  padding: 5px 10px;
   border: none;
   border-radius: 6px;
   background-color: #ff7433;
@@ -141,23 +176,48 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .qty-btn:hover {
-  opacity: 0.85;
+  background-color: #e65c1a;
+}
+
+.quantity-display {
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-width: 30px;
+  text-align: center;
+  color: #333;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 20px;
+  height: 40px;
 }
 
 .remove-btn {
   background: #ff4d4d;
   color: #fff;
   border: none;
-  padding: 10px 22px;
+  padding: 10px 20px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  align-self: center;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .remove-btn:hover {
@@ -172,18 +232,26 @@ body {
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 0;
+  padding: 30px 40px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-summary h2 {
   font-size: 1.4rem;
   color: #000;
   margin-bottom: 18px;
+  width: 100%;
+  text-align: center;
 }
 
 .checkout-btn {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(to right, #ff7f50, #ff4500);
   color: #fff;
   padding: 14px 40px;
@@ -192,16 +260,15 @@ body {
   text-decoration: none;
   transition: 0.3s;
   margin-top: 10px;
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .checkout-btn:hover {
   opacity: 0.9;
 }
-
-
-
-
-
 
 @media (max-width: 1024px) {
   .cart-section {
@@ -229,9 +296,21 @@ body {
     max-width: 300px;
     height: auto;
   }
-  .remove-btn {
-    align-self: flex-end;
-    margin-top: 10px;
+  .price-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+  .quantity-section {
+    width: auto;
+  }
+  .cart-controls {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: flex-start;
   }
   .add-item {
     flex-direction: column;
@@ -257,8 +336,21 @@ body {
   .cart-details h3 {
     font-size: 1rem;
   }
-  .cart-details p {
-    font-size: 0.9rem;
+  .price-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .qty-controls {
+    align-self: flex-start;
+  }
+  .cart-controls {
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .remove-btn {
+    width: 100%;
+    max-width: 200px;
   }
   .checkout-btn {
     width: 90%;
