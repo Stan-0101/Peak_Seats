@@ -1,0 +1,533 @@
+
+.body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.Content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.backbutton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+
+.ArenaName {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  padding-top: 20px;
+}
+
+
+.stats-card {
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.stats-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-text h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+.total-count {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stats-subtext {
+  margin: 10px 0 0 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.stats-icon i {
+  font-size: 4rem;
+  opacity: 0.7;
+}
+
+
+.selected-seats-center {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.center-summary {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+}
+
+.center-summary h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+
+.delete-btn,
+.refresh-btn,
+.search-btn,
+.retry-btn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.delete-btn:disabled,
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #95a5a6 !important;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  padding: 12px 24px;
+}
+
+.delete-btn:hover:not(:disabled) {
+  background: #c0392b;
+}
+
+
+.search-container {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  min-width: 300px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid #3498db;
+  border-radius: 8px 0 0 8px;
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+}
+
+.search-btn {
+  background: #3498db;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 0 8px 8px 0;
+}
+
+.search-btn:hover {
+  background: #2980b9;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.refresh-btn {
+  background: #2ecc71;
+  color: white;
+  padding: 12px 24px;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: #27ae60;
+}
+
+
+.error-message {
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.error-message i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.error-details {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.error-details strong {
+  color: #ffdddd;
+}
+
+.retry-btn {
+  background: white;
+  color: #e74c3c;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.retry-btn:hover {
+  background: #f5f5f5;
+}
+
+
+.loading-container {
+  text-align: center;
+  padding: 50px;
+  color: white;
+}
+
+.spinner {
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 5px solid white;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+
+
+.reservations-table-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reservations-table thead {
+  background: #2c3e50;
+  color: white;
+}
+
+.reservations-table th {
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.reservations-table th i {
+  margin-right: 8px;
+}
+
+.reservations-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background 0.3s ease;
+}
+
+.reservations-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.reservations-table tbody tr.selected {
+  background: #e3f2fd;
+}
+
+.reservations-table td {
+  padding: 15px;
+  color: #333;
+}
+
+.reservations-table input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3498db;
+}
+
+
+.user-id {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.user-id i {
+  margin-right: 8px;
+  color: #3498db;
+}
+
+
+.arena-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arena-info i {
+  color: #9b59b6;
+  font-size: 18px;
+}
+
+.arena-name {
+  font-weight: 600;
+}
+
+
+.seats-badge {
+  background: #e8f4fc;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.seats-badge i {
+  color: #3498db;
+}
+
+
+.amount-badge {
+  background: #d5f4e6;
+  color: #27ae60;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+
+.payment-method {
+  background: #fef9e7;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.payment-method i {
+  color: #f39c12;
+}
+
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #7f8c8d;
+  font-size: 18px;
+}
+
+.no-data i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #bdc3c7;
+}
+
+
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.pagination-info {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.selection-info {
+  color: #3498db;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.fa-spinner.fa-spin {
+  animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.reservations-table th:last-child,
+.reservations-table td:last-child {
+  text-align: center;
+  width: 80px;
+}
+
+
+@media (max-width: 768px) {
+  .Content {
+    padding: 10px;
+  }
+  
+  .ArenaName {
+    font-size: 2rem;
+  }
+  
+  .stats-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .search-box {
+    min-width: 100%;
+  }
+  
+  .action-buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+  
+  .refresh-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .reservations-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .table-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+
+.reservations-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.reservations-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.reservations-table-container::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 4px;
+}
+
+.reservations-table-container::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}

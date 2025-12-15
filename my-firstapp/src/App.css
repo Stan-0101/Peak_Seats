@@ -84,8 +84,8 @@
 @media (max-width: 768px) {
   .main-content {
     margin-top: 60px;
-    padding: 0; /* Changed from 15px 0 to 0 */
-    min-height: calc(100vh - 60px); /* Adjusted calculation */
+    padding: 0; 
+    min-height: calc(100vh - 60px); 
   }
   
   .page-container {
@@ -96,8 +96,8 @@
 @media (max-width: 480px) {
   .main-content {
     margin-top: 55px;
-    padding: 0; /* Changed from 10px 0 to 0 */
-    min-height: calc(100vh - 55px); /* Adjusted calculation */
+    padding: 0; 
+    min-height: calc(100vh - 55px); 
   }
   
   .page-container {
@@ -114,7 +114,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(157, 157, 157);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden; 
 }
 
 html {

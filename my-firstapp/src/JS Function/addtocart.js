@@ -18,42 +18,48 @@ export default function useAddToCart() {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    
-        const mealImages = {
-        'Greenwich': greenwich,
-        'Potato Corner': potatoCorner,
-        'Taters': taters,
-        'Jollibee': jollibee,
-        'Mang Inasal': mangInasal,
-        'Chowking': chowking
-        };
+    const mealImages = {
+      'Greenwich': greenwich,
+      'Potato Corner': potatoCorner,
+      'Taters': taters,
+      'Jollibee': jollibee,
+      'Mang Inasal': mangInasal,
+      'Chowking': chowking
+    };
 
     function renderCart() {
-      cartItemsContainer.innerHTML = '';
-      if (cart.length === 0) {
-        cartSummary.style.display = 'none';
-        return;
-      }
-      cartSummary.style.display = 'block';
-      cart.forEach(item => {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        const imgSrc = mealImages[item.name] || '';
-        cartItem.innerHTML = `
-          <img src="${imgSrc}" alt="${item.name}">
-          <div class="cart-details">
-              <h3>${item.name}</h3>
-              <p>₱<span class="item-price">${item.price}</span> x 
-                  <span class="item-qty">${item.qty}</span>
-                  <button class="qty-btn increase">+</button>
-                  <button class="qty-btn decrease">−</button>
-              </p>
+  cartItemsContainer.innerHTML = '';
+  if (cart.length === 0) {
+    cartSummary.style.display = 'none';
+    return;
+  }
+  cartSummary.style.display = 'block';
+  cart.forEach(item => {
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart-item');
+    const imgSrc = mealImages[item.name] || '';
+    cartItem.innerHTML = `
+      <img src="${imgSrc}" alt="${item.name}">
+      <div class="cart-details">
+        <h3>${item.name}</h3>
+        <div class="price-row">
+          <div class="price-text">₱${item.price}</div>
+          <div class="quantity-section">
+            <div class="qty-controls">
+              <button class="qty-btn decrease">−</button>
+              <span class="quantity-display">${item.qty}</span>
+              <button class="qty-btn increase">+</button>
+            </div>
           </div>
-          <button class="remove-btn">Remove</button>
-        `;
-        cartItemsContainer.appendChild(cartItem);
-      });
-      updateCartTotal();
+        </div>
+      </div>
+      <div class="cart-controls">
+        <button class="remove-btn">Remove</button>
+      </div>
+    `;
+    cartItemsContainer.appendChild(cartItem);
+  });
+  updateCartTotal();
     }
 
     function updateCartTotal() {

@@ -62,7 +62,13 @@ function LoginPage() {
           password: ''
         });
         
-        
+        if(formData.username === 'Admin'){
+          setResponseMsg('Admin login successful! Redirecting to dashboard...');
+          setTimeout(() => {
+            window.location.href = '/Admin Dashboard';
+          }, 1500);
+          return;
+        }
         setResponseMsg(`Login successful! Welcome ${formData.username}`);
         
         

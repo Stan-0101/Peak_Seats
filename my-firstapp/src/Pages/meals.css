@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+body {
+  opacity: 0;
+  animation: fadeInBody 0.6s ease forwards;
+}
+
+@keyframes fadeInBody {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .ordering-section {
   text-align: center;
   padding-top: 40px;
@@ -22,6 +32,20 @@
   margin-top: 20px;
   margin-bottom: 10px;
   letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideDownTitle 0.5s ease 0.3s forwards;
+}
+
+@keyframes slideDownTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .menu-grid {
@@ -43,7 +67,25 @@
   text-align: center;
   padding: 20px;
   border: #000 1px solid;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardAppear 0.5s ease forwards;
+}
+
+.food-card:nth-child(1) { animation-delay: 0.4s; }
+.food-card:nth-child(2) { animation-delay: 0.5s; }
+.food-card:nth-child(3) { animation-delay: 0.6s; }
+.food-card:nth-child(4) { animation-delay: 0.7s; }
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .food-card:hover {
@@ -81,15 +123,7 @@
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
 }
-
-.food-card button:hover {
-  opacity: 0.85;
-}
-
-
-
 
 @media (max-width: 768px) {
   .ordering-section {

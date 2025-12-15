@@ -19,6 +19,10 @@ import AquaDome from './Pages/SwimArena';
 import Payment from './Pages/Payment';
 import Pai from './Pages/PAIArena';
 import FavoritePage from './Pages/Favorite';
+import AdminDashboard from './Pages/AdminDashboard';
+import ViewReservations from './Pages/ViewReservations';
+import Users from './Pages/Users';
+import Reservations from './Pages/Reservations';
 
 function App() {
   return (
@@ -45,6 +49,10 @@ function App() {
             <Route path="/PaymentPage" element={<Payment />} />
             <Route path="/PAIArena" element={<Pai />} />
             <Route path="/Favorites" element={<FavoritePage />} />
+            <Route path="/Admin Dashboard" element={<AdminDashboard />} />
+            <Route path="/Reservations" element={<ViewReservations />} />\
+            <Route path="/All Users" element={<Users />} />
+            <Route path="/All Reservations" element={<Reservations />} />
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         </div>

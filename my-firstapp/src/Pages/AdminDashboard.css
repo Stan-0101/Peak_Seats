@@ -1,0 +1,255 @@
+/* AdminDashboard.css - Simplified Enhanced Version */
+
+/* Base styles */
+.body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.Content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Back button */
+.backbutton {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 1000;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Admin Dashboard Container */
+.admin-dashboard {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Welcome Header */
+.welcome-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.welcome-title {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* Card Links */
+.card-link {
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  transform: translateY(-5px);
+}
+
+/* Navigation Cards */
+.nav-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 160px;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.nav-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.user-management-card {
+  border-top: 5px solid #3498db;
+}
+
+.booking-management-card {
+  border-top: 5px solid #2ecc71;
+}
+
+.nav-card .card-body {
+  padding: 30px;
+  height: 100%;
+}
+
+/* Card Content Layout */
+.nav-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 24px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.user-management-card .nav-icon {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.booking-management-card .nav-icon {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.nav-content {
+  flex: 1;
+  position: relative;
+}
+
+.nav-content .card-title {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.nav-content .card-text {
+  color: #7f8c8d;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.arrow-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: #3498db;
+  font-size: 20px;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.card-link:hover .arrow-icon {
+  transform: translateX(5px);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-content {
+    padding: 15px;
+  }
+  
+  .welcome-title {
+    font-size: 2.5rem;
+  }
+  
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .nav-card .card-body {
+    padding: 20px;
+  }
+  
+  .nav-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  
+  .nav-content .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .nav-content .card-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for cards */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-card {
+  animation: cardFadeIn 0.6s ease-out;
+}
+
+.booking-management-card {
+  animation: cardFadeIn 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+/* Make sure Font Awesome icons are properly sized */
+.fas {
+  line-height: 1;
+}

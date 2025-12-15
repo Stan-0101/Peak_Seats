@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./checkout.css";
 import checkoutFunction from "../JS Function/checkout.js";
-import backgroundImage from '../images/background.jpg';
+import backgroundImage from "../images/background.jpg";
 
 export default function Checkout() {
   const [payment, setPayment] = useState("");
@@ -27,26 +27,33 @@ export default function Checkout() {
               ←
             </button>
           </div>
-          
+
           <h2>Customer Information</h2>
-          <div className="customer-info">
-            <input 
-              type="text" 
-              id="customerName"
-              name="customerName"
-              placeholder="Your Name"
-              required 
-            />
-            <input 
-              type="email" 
-              id="customerEmail"
-              name="customerEmail"
-              placeholder="Email Address"
-              required 
-            />
+
+          <div className="customer-fields">
+            <div className="customer-field">
+              <input
+                type="text"
+                id="customerName"
+                name="customerName"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+
+            <div className="customer-field">
+              <input
+                type="email"
+                id="customerEmail"
+                name="customerEmail"
+                placeholder="Email Address"
+                required
+              />
+            </div>
           </div>
 
           <h2>Checkout Summary</h2>
+
           <div className="cart-summary">
             <div className="cart-items"></div>
             <div className="total-box">
@@ -59,12 +66,12 @@ export default function Checkout() {
           <hr />
 
           <h2>Choose Payment Method</h2>
+
           <form id="checkoutForm" onSubmit={handleSubmit}>
             <div className="payment-options">
               <label>
                 <input
                   type="radio"
-                  id="paymentCard"
                   name="payment"
                   value="card"
                   required
@@ -73,10 +80,10 @@ export default function Checkout() {
                 />
                 Pay Online (Credit/Debit Card)
               </label>
+
               <label>
                 <input
                   type="radio"
-                  id="paymentOnsite"
                   name="payment"
                   value="onsite"
                   checked={payment === "onsite"}
@@ -88,10 +95,10 @@ export default function Checkout() {
 
             {payment === "card" && (
               <div className="card-fields" id="cardFields">
-                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Cardholder Name" required />
-                <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" maxLength="19" required />
-                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxLength="5" required />
-                <input type="text" id="cardCvv" name="cardCvv" placeholder="CVV" maxLength="4" required />
+                <input type="text" placeholder="Cardholder Name" required />
+                <input type="text" placeholder="Card Number" maxLength="19" required />
+                <input type="text" placeholder="MM/YY" maxLength="5" required />
+                <input type="text" placeholder="CVV" maxLength="4" required />
               </div>
             )}
 

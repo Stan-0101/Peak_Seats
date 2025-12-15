@@ -28,7 +28,7 @@ function FavoritePage() {
               <img src={backgroundImage} alt="Background" className="bg-image" />
             </div>
 
-      <div className="content">
+      
         <div className="BOX">
         <div className="favorites-box">
           <div className="header">
@@ -70,7 +70,7 @@ function FavoritePage() {
           </div>
           </div>
         </div>
-      </div>
+      
     </div>
   );
 }

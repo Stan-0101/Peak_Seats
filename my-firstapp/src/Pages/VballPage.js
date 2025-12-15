@@ -1,19 +1,16 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import backgroundImage from "../images/background.jpg";
 import "./SportsPage.css";
 
 function VballPage() {
   return (
     <div className="body">
-      {/* background */}
       <div className="bg">
-        <div className="bg-left"></div>
-        <div className="bg-center-lines"></div>
-        <div className="bg-right"></div>
+        <img src={backgroundImage} alt="Background" className="bg-image" />
       </div>
 
-      {/* main content */}
       <div className="Content">
         <div className="backbutton">
           <button onClick={() => window.history.back()} className="back-btn">
@@ -23,7 +20,6 @@ function VballPage() {
 
         <div className="TITLE">VOLLEYBALL</div>
 
-        {/* PVL */}
         <div className="Provider">PVL</div>
         <div className="games">
           <Card className="game-card">
@@ -112,7 +108,6 @@ function VballPage() {
           </Card>
         </div>
 
-        {/* NCAA */}
         <div className="Provider">NCAA</div>
         <div className="games">
           <Card className="game-card">
