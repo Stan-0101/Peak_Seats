@@ -30,9 +30,7 @@ function AdminDashboard() {
                   <h1 className="welcome-title">
                     Admin Dashboard
                   </h1>
-                  <p className="welcome-subtitle">
-                    Manage your system efficiently
-                  </p>
+                  
                 </div>
               </Col>
             </Row>
@@ -68,7 +66,7 @@ function AdminDashboard() {
                         <i className="fas fa-ticket-alt"></i>
                       </div>
                       <div className="nav-content">
-                        <Card.Title>Booking Management</Card.Title>
+                        <Card.Title>Reservation Management</Card.Title>
                         <Card.Text>
                           View and manage all reservations
                         </Card.Text>

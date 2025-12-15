@@ -292,7 +292,6 @@
   }
 }
 
-/* Collapse animations */
 .collapse:not(.show) {
   display: none;
 }
@@ -313,7 +312,7 @@
   }
 }
 
-/* Container padding */
+
 .container-fluid {
   padding: 0 30px;
 }
@@ -340,7 +339,7 @@
   border: 2px solid white;
 }
 
-/* Profile tooltip */
+
 .avatar-link::after {
   content: attr(title);
   position: absolute;
@@ -364,7 +363,7 @@
   visibility: visible;
 }
 
-/* Mobile adjustments */
+
 @media (max-width: 992px) {
   .user-indicator,
   .user-status-indicator {
