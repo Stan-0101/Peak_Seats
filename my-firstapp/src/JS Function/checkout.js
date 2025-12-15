@@ -6,26 +6,27 @@ export default function checkoutFunction() {
   if (!cartItemsContainer || !cartTotalEl || !orderForm) return;
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let totalAmount = 0;
 
   function renderCart() {
     cartItemsContainer.innerHTML = '';
-    let total = 0;
+    totalAmount = 0;
 
     if (cart.length === 0) {
       cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-      cartTotalEl.textContent = 0;
+      cartTotalEl.textContent = '0';
       return;
     }
 
     cart.forEach(item => {
-      total += item.price * item.qty;
+      totalAmount += item.price * item.qty;
       const div = document.createElement('div');
       div.classList.add('cart-item');
       div.innerHTML = `<span>${item.name} x${item.qty}</span><span>₱${item.price * item.qty}</span>`;
       cartItemsContainer.appendChild(div);
     });
 
-    cartTotalEl.textContent = total;
+    cartTotalEl.textContent = totalAmount;
   }
 
   renderCart();
@@ -36,7 +37,6 @@ export default function checkoutFunction() {
     const onsiteInfo = document.getElementById('onsiteInfo');
     const cardInputs = cardFields?.querySelectorAll('input') || [];
 
-    // If elements don't exist, try again later (for React components)
     if (!cardFields || !onsiteInfo) {
       setTimeout(setupPaymentHandlers, 100);
       return;
@@ -45,22 +45,21 @@ export default function checkoutFunction() {
     paymentRadios.forEach(radio => {
       radio.addEventListener('change', function() {
         if (this.value === 'card') {
-          cardFields.classList.remove('hidden');
-          onsiteInfo.classList.add('hidden');
+          cardFields.style.display = 'block';
+          onsiteInfo.style.display = 'none';
           cardInputs.forEach(input => input.required = true);
         } else {
-          cardFields.classList.add('hidden');
-          onsiteInfo.classList.remove('hidden');
+          cardFields.style.display = 'none';
+          onsiteInfo.style.display = 'block';
           cardInputs.forEach(input => input.required = false);
         }
       });
     });
   }
 
-  // Initialize payment handlers
   setupPaymentHandlers();
 
-  orderForm.addEventListener('submit', function(e) {
+  orderForm.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     if (cart.length === 0) {
@@ -68,8 +67,65 @@ export default function checkoutFunction() {
       return;
     }
 
-    alert('Thank you for purchasing!');
-    localStorage.removeItem('cart');
-    window.location.href = '/MealsPage';
+    const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+    
+    const userNameInput = document.getElementById('customerName');
+    const userName = userNameInput ? userNameInput.value : 'Guest';
+    
+    let cardHolderName = '';
+    let cardNumber = '';
+    let cardExpiry = '';
+    let cardCvv = '';
+    let cardLastFour = '';
+    
+    if (paymentMethod === 'card') {
+      const cardHolderInput = document.querySelector('#cardFields input[placeholder="Cardholder Name"]');
+      const cardNumberInput = document.querySelector('#cardFields input[placeholder="Card Number"]');
+      const cardExpiryInput = document.querySelector('#cardFields input[placeholder="MM/YY"]');
+      const cardCvvInput = document.querySelector('#cardFields input[placeholder="CVV"]');
+      
+      if (cardHolderInput && cardNumberInput && cardExpiryInput && cardCvvInput) {
+        cardHolderName = cardHolderInput.value;
+        cardNumber = cardNumberInput.value;
+        cardExpiry = cardExpiryInput.value;
+        cardCvv = cardCvvInput.value;
+        cardLastFour = cardNumber.replace(/\s/g, '').slice(-4);
+      }
+    }
+
+    const orderData = {
+      userName: userName,
+      mealItems: cart,
+      totalAmount: totalAmount,
+      paymentMethod: paymentMethod === 'card' ? 'online_card' : 'onsite',
+      cardHolderName: paymentMethod === 'card' ? cardHolderName : null,
+      cardLastFour: paymentMethod === 'card' ? cardLastFour : null,
+      cardExpiry: paymentMethod === 'card' ? cardExpiry : null,
+      cardCvv: paymentMethod === 'card' ? cardCvv : null,
+      restaurant: 'Multiple'
+    };
+
+    try {
+      const response = await fetch('http://localhost/Peak_Seats/backend-peakseats/api/insertMeals.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(orderData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Thank you for purchasing! Order ID: ' + result.orderId);
+        localStorage.removeItem('cart');
+        window.location.href = '/MealsPage';
+      } else {
+        alert('Failed to place order: ' + result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Network error. Check console.');
+    }
   });
 }
