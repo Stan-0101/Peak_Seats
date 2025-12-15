@@ -17,16 +17,35 @@ export default function Checkout() {
   return (
     <div className="body">
       <div className="bg">
-              <img src={backgroundImage} alt="Background" className="bg-image" />
-            </div>
+        <img src={backgroundImage} alt="Background" className="bg-image" />
+      </div>
 
       <div className="content">
         <div className="checkout-container">
-             <div className="backbutton">
+          <div className="backbutton">
             <button onClick={() => window.history.back()} className="back-btn">
               ←
             </button>
           </div>
+          
+          <h2>Customer Information</h2>
+          <div className="customer-info">
+            <input 
+              type="text" 
+              id="customerName"
+              name="customerName"
+              placeholder="Your Name"
+              required 
+            />
+            <input 
+              type="email" 
+              id="customerEmail"
+              name="customerEmail"
+              placeholder="Email Address"
+              required 
+            />
+          </div>
+
           <h2>Checkout Summary</h2>
           <div className="cart-summary">
             <div className="cart-items"></div>
@@ -45,6 +64,7 @@ export default function Checkout() {
               <label>
                 <input
                   type="radio"
+                  id="paymentCard"
                   name="payment"
                   value="card"
                   required
@@ -56,6 +76,7 @@ export default function Checkout() {
               <label>
                 <input
                   type="radio"
+                  id="paymentOnsite"
                   name="payment"
                   value="onsite"
                   checked={payment === "onsite"}
@@ -67,10 +88,10 @@ export default function Checkout() {
 
             {payment === "card" && (
               <div className="card-fields" id="cardFields">
-                <input type="text" placeholder="Cardholder Name" required />
-                <input type="text" placeholder="Card Number" maxLength="19" required />
-                <input type="text" placeholder="MM/YY" maxLength="5" required />
-                <input type="text" placeholder="CVV" maxLength="4" required />
+                <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Cardholder Name" required />
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="Card Number" maxLength="19" required />
+                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY" maxLength="5" required />
+                <input type="text" id="cardCvv" name="cardCvv" placeholder="CVV" maxLength="4" required />
               </div>
             )}
 
