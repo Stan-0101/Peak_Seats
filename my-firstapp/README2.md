@@ -1,40 +1,152 @@
+# Peak Seats Sports Website
 
-# Peak Seats
+## Introduction
 
-This website is a sports website that highlights major sports such as Basketball, Volleyball and Swimming. It aims to bring fans closer to the action by providing exciting updates, game highlights and opportunities to watch live or onsite matches.
+Peak Seats is a sports website developed to demonstrate how a functional
+web system can be built without using a traditional database. Instead,
+it uses an API to handle user registration and login. The project
+focuses on simplicity, organization, and ease of use, making it suitable
+for beginners in web development.
 
-## About the Project
-Peak Seats was created to unite sports enthusiasts and celebrate the spirit of competition. The website serves as a hub where users can follow their favorite sports, view live shows and stay engaged with the latest happenings in basketball, volleyball and swimming.
+## Project Description
 
-## Featured Sports
-Basketball
- - Catch updates, scores and live coverage of games.
-Volleyball
- - Follow thrilling matches and event highlights.
- Swimming
- - Watch competitions and learn about top athletes.
+Peak Seats is a front-end sports information website that displays
+multiple sports categories and allows users to register, log in, and
+view their profile information. User authentication is managed using an
+API rather than a database system.
+
+The project is designed for educational purposes and emphasizes clean
+design and structured navigation.
+
+## Objectives
+
+-   Create a simple sports information website\
+-   Practice front-end web development\
+-   Implement basic user authentication\
+-   Organize sports content clearly\
+-   Use APIs for handling user data\
+-   Provide a clean and responsive design
+
+## Intended Users
+
+-   Sports fans\
+-   Students\
+-   Beginners in web development\
+-   Users who prefer simple and organized websites
+
+## Website Pages and Structure
+
+-   Home Page\
+-   Basketball Page\
+-   Volleyball Page\
+-   Swimming Page\
+-   Login Page\
+-   Registration Page\
+-   User Profile Section
+
+Each page has a clear purpose and consistent layout.
+
+## Sports Sections
+
+### Basketball
+
+-   Game schedules\
+-   Match updates\
+-   Highlights\
+-   Event announcements
+
+### Volleyball
+
+-   Match information\
+-   Event highlights\
+-   Volleyball updates\
+-   Organized content display
+
+### Swimming
+
+-   Competition details\
+-   Athlete information\
+-   Event schedules\
+-   Swimming highlights
+
+## Features
+
+-   User registration\
+-   Login system\
+-   Profile menu\
+-   Navigation bar\
+-   Separate sports pages\
+-   Event information\
+-   Responsive design
+
+## User Authentication
+
+Users can: - Create an account\
+- Log in to the website\
+- View their profile information\
+- Access exclusive content
+
+User credentials are handled using an API.
 
 ## Technologies Used
-HTML
- - Website structure
-CSS
- - Styling and layout design
-JavaScript
- - Interactivity and dynamic content
 
-## APIs Used
-Google Sheets - Used for managing and verifying user login data.
+-   **HTML** -- Structure and layout\
+-   **CSS** -- Styling and responsiveness\
+-   **JavaScript** -- Interactivity and API handling
 
-## How to Use
-    1. Navigate through the different sports sections.
-    2. Watch live shows of ongoing games or check schedules for onsite events.
-    3. Register to log in and gain access to member-only content and exclusive features.
-    4. Use the navigation bar to easily switch between sports categories and other sections of the website.
-    5. Stay updated with the latest sports news, match highlights and upcoming event information.
-    6. Enjoy an engaging and responsive experience across all devices.
+## API Usage
+
+### Google Sheets API
+
+Used to: - Store user credentials\
+- Validate login information\
+- Replace database functionality
+
+## How to Use the Website
+
+1.  Open the Peak Seats website\
+2.  Explore the Home page\
+3.  Choose a sport from the navigation bar\
+4.  Register an account\
+5.  Log in using your credentials\
+6.  View your profile\
+7.  Browse sports content\
+8.  Log out after use
+
+## Design Principles
+
+-   Simplicity\
+-   Clean layout\
+-   Easy navigation\
+-   Readable content
+
+## System Limitations
+
+-   No database system\
+-   Limited features\
+-   No real-time data\
+-   For educational use only
+
+## Future Improvements
+
+-   Database integration\
+-   More sports categories\
+-   Better security\
+-   Real-time updates\
+-   Ticket or seat booking\
+-   Improved user profiles
+
+## Learning Outcomes
+
+This project helped the developers learn: - Website structuring\
+- Styling techniques\
+- JavaScript interactivity\
+- API integration\
+- Project planning
 
 ## Authors
-Developed by Lenard Ramos and Alarie Somuelo of Peak Seats.
 
+Developed by: - Lenard Ramos\
+- Alarie Somuelo
 
-
+**Project Name:** Peak Seats Sports Website
